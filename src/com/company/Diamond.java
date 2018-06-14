@@ -9,12 +9,16 @@ public class Diamond {
     private int secondSpace = 1;
 
     public Diamond(char letterFromInput) {
-        this.letterFromInput = Character.toUpperCase(letterFromInput);
+        this.letterFromInput = letterFromInput;
         this.firstSpace = letterFromInput - currentLetter;
     }
 
     public static void main(String[] args) throws IOException {
          char inputLetter = (char) System.in.read();
+         inputLetter = Character.toUpperCase(inputLetter);
+         if(!(inputLetter >= 65 && inputLetter <= 90)){
+             throw new IllegalArgumentException();
+         }
          Diamond diamond = new Diamond(inputLetter);
          diamond.makeDiamond();
     }
