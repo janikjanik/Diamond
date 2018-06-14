@@ -18,10 +18,12 @@ public class Diamond {
     }
 
     public static void main(String[] args) throws IOException {
-         char inputLetter = (char) System.in.read();
-         inputLetter = Character.toUpperCase(inputLetter);
-         Diamond diamond = new Diamond(inputLetter);
-         diamond.makeDiamond();
+        System.out.print("type letter from A to Z: ");
+        char inputLetter = (char) System.in.read();
+        System.out.println();
+        inputLetter = Character.toUpperCase(inputLetter);
+        Diamond diamond = new Diamond(inputLetter);
+        diamond.makeDiamond();
     }
 
     private void makeDiamond(){
