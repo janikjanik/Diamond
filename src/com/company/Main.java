@@ -21,4 +21,9 @@ public class Main {
         }
         System.out.println(letter);
     }
+
+    public void printTwoLetters(int spacesBeforeLetter, int spacesAfterLetter, char letter){
+        printSingleLetter(spacesBeforeLetter, letter);
+        printSingleLetter(spacesAfterLetter, letter);
+    }
 }
