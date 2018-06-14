@@ -8,8 +8,9 @@ public class Diamond {
     private char currentLetter = 'A';
     private int secondSpace = 1;
 
+
     public Diamond(char letterFromInput) throws IllegalArgumentException{
-        if(!(letterFromInput>= 65 && letterFromInput<= 90)){
+        if(!(letterFromInput>= 65 && letterFromInput<= 90)) {
             throw new IllegalArgumentException();
         }
         this.letterFromInput = letterFromInput;
