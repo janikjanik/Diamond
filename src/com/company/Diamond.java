@@ -8,7 +8,10 @@ public class Diamond {
     private char currentLetter = 'A';
     private int secondSpace = 1;
 
-    public Diamond(char letterFromInput) {
+    public Diamond(char letterFromInput) throws IllegalArgumentException{
+        if(!(letterFromInput>= 65 && letterFromInput<= 90)){
+            throw new IllegalArgumentException();
+        }
         this.letterFromInput = letterFromInput;
         this.firstSpace = letterFromInput - currentLetter;
     }
@@ -16,14 +19,11 @@ public class Diamond {
     public static void main(String[] args) throws IOException {
          char inputLetter = (char) System.in.read();
          inputLetter = Character.toUpperCase(inputLetter);
-         if(!(inputLetter >= 65 && inputLetter <= 90)){
-             throw new IllegalArgumentException();
-         }
          Diamond diamond = new Diamond(inputLetter);
          diamond.makeDiamond();
     }
 
-    public void makeDiamond(){
+    private void makeDiamond(){
         if(letterFromInput == 'A') {
             System.out.println("A");
         }
@@ -39,7 +39,7 @@ public class Diamond {
         }
     }
 
-    public void printFirstHalfOfDiamond(){
+    private void printFirstHalfOfDiamond(){
         while (currentLetter != letterFromInput) {
             currentLetter += 1;
             printSingleLetter(firstSpace, currentLetter);
@@ -50,7 +50,7 @@ public class Diamond {
         }
     }
 
-    public void printSecondHalfOfDiamond(){
+    private void printSecondHalfOfDiamond(){
         while (currentLetter != 'B') {
             currentLetter -= 1;
             printSingleLetter(firstSpace, currentLetter);
@@ -61,7 +61,7 @@ public class Diamond {
         }
     }
 
-    public static void printSingleLetter(int spaces, char letter){
+    private static void printSingleLetter(int spaces, char letter){
         int i = 0;
         while (i++ < spaces){
             System.out.print(" ");
